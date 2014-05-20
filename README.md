@@ -24,7 +24,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 If you want to use javascript ver. in real-time, add following code after your ``KARAS.convert``.
 
 ```javascript
-// MathJax.Hub.Queue(["Typeset", MathJax.Hub, "your output area id"]);
+MathJax.Hub.Queue(["Typeset", MathJax.Hub, "your output area id"]);
 ```
 More info about this is described in Javascript ver source.
 And ```MathJaxJsPage.html``` is one of sample to use in real-time.
