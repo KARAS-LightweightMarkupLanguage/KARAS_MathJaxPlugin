@@ -6,7 +6,7 @@
 
 This is plugin to use *MathJax* in KARAS(Lightweight Markup Language).
 If you want to get more info about KARAS, please visit [lightweightmarkuplanguage.com](http://lightweightmarkuplanguage.com).
-If you want to get more info about MathJax, please visit [mathjax.org](http://http://www.mathjax.org/).
+If you want to get more info about MathJax, please visit [mathjax.org](http://www.mathjax.org/).
 
 
 ## How to Use
