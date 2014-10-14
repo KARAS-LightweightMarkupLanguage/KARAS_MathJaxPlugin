@@ -43,17 +43,17 @@
 // [Syntax Sample]
 // = Convert type (Inline type MathJax)
 //
-// [[mathjax :: y=x^{2}+2x+1]]
+// [[mathjax ::: y=x^{2}+2x+1]]
 // 
 // = Action type (Block type MathJax)
 // 
-// [[[mathjax ::
+// [[[mathjax :::
 //    \sum_{n=1}^{N}n = 1 + 2 + 3 + 4 + \cdots + (N-3) + (N-2) + (N-1) + N \tag{1}
 // ]]]
 
 class MathJax
  {
-    public static function convert($markedupText, $options)
+    public static function convert($options, $markedupText)
     {
         $markedupText = trim($markedupText);
         $markedupText = str_replace("\\", "\\\\", $markedupText);
@@ -61,9 +61,9 @@ class MathJax
         return $markedupText;
     }
 
-    public static function action($text, $options)
+    public static function action($options, $markedupText, $text)
     {
-        $markedupText = trim($options[0]);
+        $markedupText = trim($markedupText);
         $markedupText = "<div class=\"mathjaxframe\">\n\\\\[\n"
                         . str_replace("\\", "\\\\", $markedupText)
                         . "\n\\\\]\n</div>";

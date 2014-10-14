@@ -58,17 +58,17 @@
 // [Syntax Sample]
 // = Convert type (Inline type MathJax)
 // 
-// [[mathjax :: y=x^{2}+2x+1]]
+// [[mathjax ::: y=x^{2}+2x+1]]
 // 
 // = Action type (Block type MathJax)
 // 
-// [[[mathjax ::
+// [[[mathjax :::
 //    \sum_{n=1}^{N}n = 1 + 2 + 3 + 4 + \cdots + (N-3) + (N-2) + (N-1) + N \tag{1}
 // ]]]
 
 KARAS.mathjax = new Object();
 
-KARAS.mathjax.convert = function(markedupText, options)
+KARAS.mathjax.convert = function(options, markedupText)
 {
     markedupText = markedupText.trim();
     markedupText = markedupText.replace(/\\/g, "\\\\");
@@ -76,9 +76,9 @@ KARAS.mathjax.convert = function(markedupText, options)
     return markedupText;
 };
 
-KARAS.mathjax.action = function(text, options)
+KARAS.mathjax.action = function(options, markedupText, text)
 {
-    markedupText = options[0].trim();
+    markedupText = markedupText.trim();
     markedupText = "<div class=\"mathjaxframe\">\n\\\\[\n"
                    + markedupText.replace(/\\/g, "\\\\")
                    + "\n\\\\]\n</div>";

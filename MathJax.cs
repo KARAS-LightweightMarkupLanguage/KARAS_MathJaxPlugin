@@ -42,17 +42,17 @@
 // [Syntax Sample]
 // = Convert type (Inline type MathJax)
 //
-// [[mathjax :: y=x^{2}+2x+1]]
+// [[mathjax ::: y=x^{2}+2x+1]]
 // 
 // = Action type (Block type MathJax)
 // 
-// [[[mathjax ::
+// [[[mathjax :::
 //    \sum_{n=1}^{N}n = 1 + 2 + 3 + 4 + \cdots + (N-3) + (N-2) + (N-1) + N \tag{1}
 // ]]]
 
 public static class MathJax
 {
-    public static string convert(string markedupText, string[] options)
+    public static string convert(string[] options, string markedupText)
     {
         markedupText = markedupText.Trim();
         markedupText = markedupText.Replace("\\", "\\\\");
@@ -60,9 +60,9 @@ public static class MathJax
         return markedupText;
     }
 
-    public static string action(string text, string[] options)
+    public static string action(string[] options, string markedupText, string text)
     {
-        string markedupText = options[0].Trim();
+        string markedupText = markedupText.Trim();
         markedupText = "<div class=\"mathjaxframe\">\n\\\\[\n"
                         + markedupText.Replace("\\", "\\\\")
                         + "\n\\\\]\n</div>";

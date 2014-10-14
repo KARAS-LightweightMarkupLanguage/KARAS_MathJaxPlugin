@@ -42,24 +42,24 @@
 # [Syntax Sample]
 # = Convert type (Inline type MathJax)
 #
-# [[mathjax :: y=x^{2}+2x+1]]
+# [[mathjax ::: y=x^{2}+2x+1]]
 # 
 # = Action type (Block type MathJax)
 # 
-# [[[mathjax ::
+# [[[mathjax :::
 #    \sum_{n=1}^{N}n = 1 + 2 + 3 + 4 + \cdots + (N-3) + (N-2) + (N-1) + N \tag{1}
 # ]]]
 
 class MathJax
-    def self.convert(markedupText, options)
+    def self.convert(options, markedupText)
         markedupText = markedupText.strip()
         markedupText = markedupText.gsub(/\\/, "\\\\\\\\")
         markedupText = "\\\\(" + markedupText + "\\\\)"
         return markedupText
     end
 
-    def self.action(text, options)
-        markedupText = options[0].strip()
+    def self.action(options, markedupText, text)
+        markedupText = markedupText.strip()
         markedupText = "<div class=\"mathjaxframe\">\n\\\\[\n" +
                        markedupText.gsub(/\\/, "\\\\\\\\") +
                        "\n\\\\]\n</div>"
